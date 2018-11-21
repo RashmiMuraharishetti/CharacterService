@@ -5,6 +5,8 @@ import com.thanksgivingProject.characterService.Exception.CharacterException;
 import com.thanksgivingProject.characterService.Repository.CharacterRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class CharacterProfileService {
 
@@ -20,6 +22,10 @@ public class CharacterProfileService {
         CharacterProfile cProfile = genChar.generateProfile(charName, charClass);
 
         return characterRepository.save(cProfile);
+    }
+
+    public Optional<CharacterProfile> getCharacter(Integer id){
+        return characterRepository.findById(id);
     }
 
 }
