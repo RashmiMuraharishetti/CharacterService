@@ -43,7 +43,6 @@ public class generateCharacterService {
                 profile.setCharDex(max);
                 profile.setCharCha(min);
                 profile.setCharInt(intRandom[0]);
-                //profile.setCharWis(intRandom[1]);
                 profile.setCharStr(intRandom[1]);
                 break;
 
@@ -51,7 +50,6 @@ public class generateCharacterService {
             case "Wizard":{
                 profile.setCharInt(max);
                 profile.setCharStr(min);
-                //profile.setCharWis(intRandom[0]);
                 profile.setCharCha(intRandom[0]);
                 profile.setCharDex(intRandom[1]);
                 break;
@@ -61,7 +59,6 @@ public class generateCharacterService {
                 profile.setCharCha(max);
                 profile.setCharStr(min);
                 profile.setCharInt(intRandom[0]);
-                //profile.setCharWis(intRandom[1]);
                 profile.setCharDex(intRandom[1]);
                 break;
 
