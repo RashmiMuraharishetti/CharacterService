@@ -15,7 +15,6 @@ public class CharacterProfileController {
         this.characterProfileService = characterProfileService;
     }
 
-    // To Post the data into the database
     @RequestMapping(value = "/gen/{charName}/{charClass}", method = RequestMethod.POST)
     public CharacterProfile generateCharacter(@PathVariable String charName, @PathVariable String charClass) throws CharacterException {
         return characterProfileService.generateService(charName, charClass);

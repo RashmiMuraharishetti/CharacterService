@@ -2,9 +2,11 @@ package com.thanksgivingProject.characterService.Service;
 
 import com.thanksgivingProject.characterService.Entity.CharacterProfile;
 import com.thanksgivingProject.characterService.Exception.CharacterException;
+import org.springframework.stereotype.Service;
 
 import java.util.Random;
 
+@Service
 public class generateCharacterService {
 
     public generateCharacterService() {
@@ -18,7 +20,7 @@ public class generateCharacterService {
         profile.setCharName(charName);
         profile.setCharClass(charClass);
 
-        //Generate and sort array of random numbers between 8 to 18
+
         int[] randomArray = new Random().ints(5, 8, 18).sorted().toArray();
         int max = randomArray[4];
         int min = randomArray[0];
@@ -27,16 +29,13 @@ public class generateCharacterService {
 
 
 
-        //switch case for each character class
+
         switch(charClass){
             case "Warrior":{
                 profile.setCharStr(max);
                 profile.setCharInt(min);
-                profile.setCharWis(intRandom[0]);
-                profile.setCharCha(intRandom[1]);
-                profile.setCharDex(intRandom[2]);
-                profile.setCharCon(intRandom[3]);
-                profile.setLocation(intRandom[4]);
+                profile.setCharCha(intRandom[0]);
+                profile.setCharDex(intRandom[1]);
                 break;
 
             }
@@ -44,21 +43,17 @@ public class generateCharacterService {
                 profile.setCharDex(max);
                 profile.setCharCha(min);
                 profile.setCharInt(intRandom[0]);
-                profile.setCharWis(intRandom[1]);
-                profile.setCharStr(intRandom[2]);
-                profile.setCharCon(intRandom[3]);
-                profile.setLocation(intRandom[4]);
+                //profile.setCharWis(intRandom[1]);
+                profile.setCharStr(intRandom[1]);
                 break;
 
             }
             case "Wizard":{
                 profile.setCharInt(max);
                 profile.setCharStr(min);
-                profile.setCharWis(intRandom[0]);
-                profile.setCharCha(intRandom[1]);
-                profile.setCharDex(intRandom[2]);
-                profile.setCharCon(intRandom[3]);
-                profile.setLocation(intRandom[4]);
+                //profile.setCharWis(intRandom[0]);
+                profile.setCharCha(intRandom[0]);
+                profile.setCharDex(intRandom[1]);
                 break;
 
             }
@@ -66,20 +61,20 @@ public class generateCharacterService {
                 profile.setCharCha(max);
                 profile.setCharStr(min);
                 profile.setCharInt(intRandom[0]);
-                profile.setCharWis(intRandom[1]);
-                profile.setCharDex(intRandom[2]);
-                profile.setCharCon(intRandom[3]);
-                profile.setLocation(intRandom[4]);
+                //profile.setCharWis(intRandom[1]);
+                profile.setCharDex(intRandom[1]);
                 break;
 
             }
             default:{
-                //any other class, throw exception
                 throw new CharacterException();
             }
         }
 
         //profile.setInventory(empty);
+        profile.setCharWis(intRandom[2]);
+        profile.setCharCon(intRandom[3]);
+        profile.setLocation(intRandom[4]);
         profile.setHitPoints(profile.getCharCon()*2);
 
         return profile;
